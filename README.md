@@ -1,4 +1,7 @@
-# CS F320 – Assignment 2: Principal Component Analysis (Wine data)
+# CS F320 – Assignment 2: Principal Component Analysis (Wine data)-
+# 2023B5AD0962H-Upasana Agrawal
+# 2023B3A70761H-Himangi Agrawal
+
 
 All four problems (P1–P4) implemented in Python following the assignment's
 conventions C1–C6 (train-only fitting, z-score with N−1, sample covariance,
