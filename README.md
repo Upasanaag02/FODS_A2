@@ -39,9 +39,4 @@ Every script prints to the terminal **and** saves the identical text to `outputs
 | P3 | r1: V1 0.9978 / V2 0.4271 / V3 0.3573; 5-NN acc: 0.7222 / 0.9815 / 0.9444 |
 | P4 | baseline 0.9815; PCA reaches it at k=3, filter k=5, wrapper k=8 |
 
-## Viva cheat-sheet
-* **Why eigenvectors?** Maximise uᵀSu s.t. uᵀu=1 → Lagrangian → Su=λu; variance along u_j is λ_j.
-* **Why tr(S)=13?** z-scored ⇒ S is the correlation matrix, diagonal = 1.
-* **Reconstruction error = discarded eigenvalues:** J_train(k)=Σ_{j>k}λ_j; J_test is non-increasing but not equal to that sum.
-* **Why V1 fails:** proline (variance ≈ 94,907) dominates, so PC1 ≈ proline.
-* **PCA vs selection:** PCA is unsupervised and mixes all features; filter/wrapper use labels but keep original features. 54 test samples ⇒ 1 sample ≈ 1.85 pts, so small gaps are noise.
+
