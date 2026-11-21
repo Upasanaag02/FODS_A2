@@ -1,0 +1,91 @@
+
+========================================================================
+P4: baseline (all 13 standardised features)
+========================================================================
+baseline test accuracy = 0.9815  (53/54)
+within-one-sample threshold = baseline - 1/54 = 0.9630
+
+========================================================================
+P4: F-score ranking (best first)
+========================================================================
+ 1. flavanoids                     F = 187.6858
+ 2. proline                        F = 149.4335
+ 3. od280/od315_of_diluted_wines   F = 126.6191
+ 4. alcohol                        F = 100.3464
+ 5. color_intensity                F = 83.9793
+ 6. hue                            F = 72.2673
+ 7. total_phenols                  F = 59.2558
+ 8. alcalinity_of_ash              F = 26.0528
+ 9. malic_acid                     F = 22.5828
+10. proanthocyanins                F = 19.9799
+11. nonflavanoid_phenols           F = 17.9053
+12. ash                            F = 11.5760
+13. magnesium                      F = 7.1124
+
+========================================================================
+P4: SFS selection order and CV accuracy per step
+========================================================================
+step 1: add flavanoids                     5-fold CV acc = 0.7667
+step 2: add alcohol                        5-fold CV acc = 0.9357
+step 3: add alcalinity_of_ash              5-fold CV acc = 0.9517
+step 4: add proanthocyanins                5-fold CV acc = 0.9597
+step 5: add magnesium                      5-fold CV acc = 0.9597
+step 6: add ash                            5-fold CV acc = 0.9680
+step 7: add hue                            5-fold CV acc = 0.9840
+step 8: add proline                        5-fold CV acc = 1.0000
+candidate subsets evaluated: 76 (derivation says 13+12+...+6 = 76); model fits = 380
+
+========================================================================
+P4: cross-check with sklearn SequentialFeatureSelector
+========================================================================
+k = 1: own == sklearn : True
+k = 2: own == sklearn : True
+k = 3: own == sklearn : True
+k = 5: own == sklearn : True
+k = 8: own == sklearn : True
+all sets identical: True
+
+========================================================================
+P4: test accuracy table
+========================================================================
+ k  (A) PCA  (B) Filter F-score  (C) Wrapper SFS
+ 1   0.8704              0.8519           0.8519
+ 2   0.9444              0.9074           0.8889
+ 3   0.9815              0.9074           0.8704
+ 5   1.0000              0.9815           0.9074
+ 8   0.9815              0.9815           0.9630
+
+Same table as number correct out of 54:
+ k  (A) PCA  (B) Filter F-score  (C) Wrapper SFS
+ 1       47                  46               46
+ 2       51                  49               48
+ 3       53                  49               47
+ 5       54                  53               49
+ 8       53                  53               52
+baseline: 53/54
+
+========================================================================
+P4: features chosen by (B) and (C)
+========================================================================
+k = 3
+  (B) filter : ['flavanoids', 'od280/od315_of_diluted_wines', 'proline']
+  (C) wrapper: ['alcohol', 'alcalinity_of_ash', 'flavanoids']
+  shared (1): ['flavanoids']
+k = 8
+  (B) filter : ['alcohol', 'alcalinity_of_ash', 'total_phenols', 'flavanoids', 'color_intensity', 'hue', 'od280/od315_of_diluted_wines', 'proline']
+  (C) wrapper: ['alcohol', 'ash', 'alcalinity_of_ash', 'magnesium', 'flavanoids', 'proanthocyanins', 'hue', 'proline']
+  shared (5): ['alcalinity_of_ash', 'alcohol', 'flavanoids', 'hue', 'proline']
+
+========================================================================
+P4: smallest k within one test sample of baseline
+========================================================================
+  (A) PCA     : 3
+  (B) Filter  : 5
+  (C) Wrapper : 8
+
+Binomial standard error of one accuracy near 0.981 with n=54: 0.0183  (one sample = 0.0185)
+[saved] outputs/P4/figures/p4_accuracy_vs_k.png
+[saved] outputs/P4/figures/p4_fscore_ranking.png
+[saved] outputs/P4/figures/p4_selected_features.png
+[saved] outputs/P4/figures/p4_sfs_path.png
+[saved] summary_pages/P4_onepage.png

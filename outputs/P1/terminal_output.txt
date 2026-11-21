@@ -1,0 +1,73 @@
+
+========================================================================
+P1: setup
+========================================================================
+N = 124, D = 13
+max |column mean of Z|  = 1.2e-15
+max |column std(ddof=1)-1| = 2.2e-16
+
+========================================================================
+P1: eigenvalues (descending)
+========================================================================
+lambda 1 = 4.6450
+lambda 2 = 2.4972
+lambda 3 = 1.4309
+lambda 4 = 0.9426
+lambda 5 = 0.9065
+lambda 6 = 0.6944
+lambda 7 = 0.5922
+lambda 8 = 0.3140
+lambda 9 = 0.2653
+lambda 10 = 0.2570
+lambda 11 = 0.2191
+lambda 12 = 0.1413
+lambda 13 = 0.0947
+
+========================================================================
+P1: orthonormality and trace checks
+========================================================================
+||U^T U - I||_F      = 3.1e-15
+tr(S)                = 13.0000
+|tr(S) - sum(lambda)| = 0.0e+00
+(expected tr(S) = D = 13; S_jj all 1: True)
+S symmetric: True;  min eigenvalue = 0.0947 (>=0, PSD)
+
+========================================================================
+P1: verification vs sklearn.decomposition.PCA
+========================================================================
+max|lambda_ours - explained_variance_| = 3.1e-15  -> agree: True
+max|U_ours - components_.T (sign-fixed)| = 1.5e-14  -> agree: True
+
+========================================================================
+P1: loadings of u1 and u2 (by feature name)
+========================================================================
+                                 PC1     PC2
+alcohol                       0.1576  0.4941
+malic_acid                   -0.2524  0.1671
+ash                          -0.0166  0.3358
+alcalinity_of_ash            -0.2351 -0.0230
+magnesium                     0.1429  0.2817
+total_phenols                 0.3899  0.0716
+flavanoids                    0.4260  0.0057
+nonflavanoid_phenols         -0.2868  0.0486
+proanthocyanins               0.3086  0.0059
+color_intensity              -0.0889  0.5263
+hue                           0.3012 -0.2840
+od280/od315_of_diluted_wines  0.3778 -0.1814
+proline                       0.2884  0.3703
+
+Top-3 |loading| on PC1:
+   flavanoids                     +0.4260
+   total_phenols                  +0.3899
+   od280/od315_of_diluted_wines   +0.3778
+
+Top-3 |loading| on PC2:
+   color_intensity                +0.5263
+   alcohol                        +0.4941
+   proline                        +0.3703
+[saved] outputs/P1/figures/p1_eigenvalues.png
+[saved] outputs/P1/figures/p1_loadings_pc1_pc2.png
+[saved] outputs/P1/figures/p1_pc1_pc2_scores.png
+[saved] outputs/P1/figures/p1_covariance_heatmap.png
+[saved] outputs/P1/figures/p1_verification_residuals.png
+[saved] summary_pages/P1_onepage.png

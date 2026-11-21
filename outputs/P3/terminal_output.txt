@@ -1,0 +1,39 @@
+
+========================================================================
+P3: summary table
+========================================================================
+          variant     r1     r2  r1+r2 largest |loading| on PC1  5-NN test accuracy
+V1 (centred only) 0.9978 0.0021 0.9998                  proline              0.7222
+     V2 (min-max) 0.4271 0.1841 0.6113               flavanoids              0.9815
+     V3 (z-score) 0.3573 0.1921 0.5494               flavanoids              0.9444
+
+5-NN test accuracy as counts:
+  V1 (centred only)  39/54 correct = 0.7222
+  V2 (min-max)       53/54 correct = 0.9815
+  V3 (z-score)       51/54 correct = 0.9444
+
+========================================================================
+P3: V1 - three features with largest raw sample variance
+========================================================================
+  proline              variance = 94906.7109
+  magnesium            variance = 232.0715
+  alcalinity_of_ash    variance = 11.4713
+  (tr(S) for V1 = 95159.9552;  proline alone = 0.9973 of total)
+
+V1 PC1 loadings (top 3 by |loading|):
+  proline              +0.9998
+  magnesium            +0.0196
+  alcalinity_of_ash    -0.0049
+
+========================================================================
+P3: extra facts used in the paragraph
+========================================================================
+Largest |loading| on PC2 per variant:
+  V1 (centred only)  magnesium
+  V2 (min-max)       color_intensity
+  V3 (z-score)       color_intensity
+[saved] outputs/P3/figures/p3_projections_3panel.png
+[saved] outputs/P3/figures/p3_raw_variances.png
+[saved] outputs/P3/figures/p3_r1_r2_by_variant.png
+[saved] outputs/P3/figures/p3_knn_accuracy.png
+[saved] summary_pages/P3_onepage.png
